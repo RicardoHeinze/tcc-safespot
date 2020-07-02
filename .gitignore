@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/TCCSafeSpot/v15/Server/sqlite3
+/TCCSafeSpot/App_Data/DBTCCSafeSpot.mdf
+/TCCSafeSpot/App_Data/DBTCCSafeSpot_log.ldf
+/TCCSafeSpot/App_Data/BDTCCSafeSpot.mdf
+/TCCSafeSpot/App_Data/BDTCCSafeSpot_log.ldf

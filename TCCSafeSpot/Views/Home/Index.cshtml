@@ -1,0 +1,325 @@
+﻿@{
+    ViewBag.Title = "SafeSpot";
+}
+<nav class="menu-bar clearfix animated fadeIn">
+    <div class="mobile-menu">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+        <ul class="mobile-menu-list">
+            <li><a href="#main-section">SafeSpot</a></li>
+            <li><a href="#info-section">Sobre</a></li>
+            <li><a href="#register-section">Cadastrar</a></li>
+        </ul>
+    </div>
+    <ul class="desktop-menu-list">
+        <li>
+            <a class="menu-link menu-button" href="#main-section">SafeSpot</a>
+        </li>
+        <li>
+            <a class="menu-link" href="#info-section">Sobre</a>
+        </li>
+        <li>
+            <a class="menu-link" href="#register-section">Cadastro</a>
+        </li>
+    </ul>
+</nav>
+<div class="wrapper-middle">
+    <main id="main-section">
+        <div class="main-box">
+            <h1 style="display:none">SafeSpot</h1>
+            <img class="logo-image animated fadeIn" src="~/Content/img/new-logo.png" />
+            <div class="main-content">
+                <div class="main-search-content animated fadeInUp">
+                    <input placeholder="Endereço" class="address-filter" />
+                </div>
+                <div class="advanced-filter-content animated fadeInUp">
+                    <button class="advanced-filter-button" type="button">Filtro</button>
+                    <button class="main-search-button" type="button">Pesquisar</button>
+                    <div class="advanced-filters">
+                        <div class="advanced-filter-box">
+                            <p class="title">Cidade</p>
+                            <select id="combo-cidade" class="advanced-filter advanced-filter-town">
+                                <option value="">Selecione</option>
+                            </select>
+                        </div>
+                        @*<div class="advanced-filter-box">
+                            <p class="title">Bairro</p>
+                            <select class="advanced-filter advanced-filter-district">
+                                <option value="">Selecione</option>
+                            </select>
+                        </div>*@
+                        <div class="advanced-filter-box">
+                            <input class="advanced-filter-check-box advanced-filter-police" name="" value="2" type="checkbox" />
+                            <p class="check-title">Base de dados da Secretaria de Segurança Pública (SSP)</p>
+                        </div>
+                        <div class="advanced-filter-box">
+                            <input class="advanced-filter-check-box advanced-filter-user" name="" value="1" type="checkbox" />
+                            <p class="check-title">Base de dados cadastrados por usuários</p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="result-content">
+                    <div id="warning-message" class="message-content animated pulse">
+                        <h2 class="message-title">alerta</h2>
+                        <p class="message-description"></p>
+                    </div>
+                    <div class="chart-content">
+                        <div class="chart-box">
+                            <canvas id="RetornaTipoCrimePorMesAnual"></canvas>
+                        </div>
+                        <div class="chart-box">
+                            <canvas id="RetornaTipoCrimePorMes"></canvas>
+                        </div>
+                        <div class="chart-box">
+                            <canvas id="RetornaQtdCrimePorDia"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-bg"></div>
+    </main>
+    <section id="info-section">
+        <div class="info-content animated ">
+            <div class="info-column">
+                <h2 class="info-title">Quem somos nós?</h2>
+                <p class="info-text">
+                    Somos um grupo independente que tem como objetivo fornecer um sistema de informação, capaz de notificar os indices de criminalidade do estado de São Paulo, através de dados coletados pelos relatórios da Policia Militar e dos registrados pelo nosso site.
+                </p>
+                <div class="contact-group">
+                    <div class="contact-box mobile-box">
+                        <a class="contact-content" href="tel:190">
+                            <i class="mobile-icon"></i>
+                            <span class="text">Clique aqui para ser direcionado ao discador do seu celular</span>
+                        </a>
+                    </div>
+                    <div class="contact-box mobile-box">
+                        <button class="contact-content" type="button" data-toggle="modal" data-target="#infoModal">
+                            <i class="telephone-icon"></i>
+                            <span class="text">Consulte os números úteis de forma simples e rápida</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="info-column">
+                <img src="~/Content/img/LogoSegundaTela.png" />
+            </div>
+        </div>
+    </section>
+    <section id="carrousel-section">
+        <div class="carousel fade-carousel slide carousel-fade" data-ride="carousel"
+             data-interval="5000" id="bs-carousel">
+            <!-- Overlay -->
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#bs-carousel" data-slide-to="1"></li>
+                <li data-target="#bs-carousel" data-slide-to="2"></li>
+                <li data-target="#bs-carousel" data-slide-to="3"></li>
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item slides c-slide-1 carousel-item active">
+                    <div class="slide-1">
+                        <div class="overlay"></div>
+                    </div>
+                </div>
+                <div class="hero hero1">
+                    <hgroup>
+                        <h3>Use o safespot</h3>
+                    </hgroup>
+                </div>
+                <div class="item slides c-slide-2 carousel-item">
+                    <div class="slide-2">
+                        <div class="overlay"></div>
+                    </div>
+                </div>
+                <div class="hero hero2">
+                    <hgroup>
+                        <h3>Colabore com a segurança</h3>
+                    </hgroup>
+                </div>
+                <div class="item slides c-slide-3 carousel-item">
+                    <div class="slide-3">
+                        <div class="overlay"></div>
+                    </div>
+                </div>
+                <div class="hero hero3">
+                    <hgroup>
+                        <h3>Por uma cidade mais segura e informada</h3>
+                    </hgroup>
+                </div>
+                <div class="item slides c-slide-4 carousel-item">
+                    <div class="slide-4">
+                        <div class="overlay"></div>
+                    </div>
+                </div>
+                <div class="hero hero4">
+                    <hgroup>
+                        <h3>Proteja seu bairro</h3>
+                    </hgroup>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="register-section">
+        <div class="register-content">
+            <h2 class="title">Cadastrar crime</h2>
+            <p>Você sofreu algum tipo de crime? Cadastre-o em nosso banco de dados e mantenha seu bairro mais seguro!</p>
+            <button class="contact-content" type="button" data-toggle="modal" data-target="#registerModal">Cadastrar</button>
+        </div>
+    </section>
+</div>
+
+@*#REGION MODAL*@
+<div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Informações</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class=" conteudo">
+                    <i class="image image-militar">
+                        <img src="~/Content/img/militar.png" />
+                    </i>
+                    <p class="text textmilitar">
+                        A Polícia Militar é conhecida como a Força Policial que realiza o policiamento ostensivo, preventivo, repressivo imediato e de preservação da ordem pública, sendo que cada Estado e o Distrito Federal possui sua própria Polícia Militar, subordinadas ao Governador do Estado a que pertencem. A Polícia Militar do Estado de São Paulo é a segunda maior força militar do Brasil, perdendo em número de efetivo somente para o exército.<br /><br />Número Policia Militar: 190
+                    </p>
+                    <i class="image image-civil">
+                        <img src="~/Content/img/civil.png" />
+                    </i>
+                    <p class="text textcivil">
+                        As Polícias Civis são instituições históricas, tipicamente brasileiras, que exercem funções de polícia judiciária, nas unidades federativas do Brasil, cuja função é, de acordo com o artigo 144 da Constituição Federal de 1988, o exercício da segurança pública. As polícias civis são subordinadas aos Governadores dos Estados ou do Distrito Federal e dos Territórios e dirigidas por delegados de polícia de carreira.<br><br>Número Policia Civil: 197
+                    </p>
+                    <i class="image image-bombeiro">
+                        <img src="~/Content/img/bombeiros.png" />
+                    </i>
+                    <p class="text textbombeiro">
+                        Bombeiros são entidades da Proteção Civil cujos membros, são treinados para atuarem em caso de incêndios (florestais ou urbanos/industriais), para resgatar pessoas de acidentes de trânsito, desmoronamentos de edifícios, desastres naturais, salvamento em grande ângulo. Alguns possuem equipamentos de matérias perigosas e fornecem serviços de emergência médica e pré-hospitalar. O serviço de combate a incêndios e serviços de resgate é conhecido em alguns países como "brigada de incêndio". Os bombeiros tornaram-se presentes desde as áreas florestais para as áreas urbanas e a bordo de navios<br><br>Número Corpo de Bombeiros: 193
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Cadastro de Crime</h3>
+                <button type="button" onclick="limpaFormularioCadastro()" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="register-form" name="register-form" onsubmit="registerSubmit(this)">
+                    <fieldset>
+                        <div class="register-group">
+                            <label for="register-name">Nome</label>
+                            <input required id="register-name" placeholder="Digite seu nome" name="register-name" type="text" oninvalid="this.setCustomValidity('Digite seu nome')" oninput="this.setCustomValidity('')" />
+                        </div>
+                        <div class="register-group">
+                            <label for="register-birthday">Data de Nascimento</label>
+                            <input required id="register-birthday" name="register-birthday" type="date" oninvalid="this.setCustomValidity('Selecione sua data de nascimento')" oninput="this.setCustomValidity('')" />
+                        </div>
+                        <div class="register-group">
+                            <label for="register-email">E-mail</label>
+                            <input required id="register-email" placeholder="Digite seu e-mail" name="register-email" type="email" oninvalid="this.setCustomValidity('Digite seu e-mail')" oninput="this.setCustomValidity('')" />
+                        </div>
+                        <div class="register-group">
+                            <label for="register-genre">Sexo</label>
+                            <select id="register-genre" required oninvalid="this.setCustomValidity('Selecione seu sexo')" oninput="this.setCustomValidity('')">
+                                <option value="">Selecione seu sexo</option>
+                                <option value="m">Masculino</option>
+                                <option value="f">Feminino</option>
+                            </select>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="register-group">
+                            <label for="register-crime-type">Tipo de crime</label>
+                            <select id="register-crime-type" required oninvalid="this.setCustomValidity('Selecione um tipo de crime')" oninput="this.setCustomValidity('')">
+                                <option value="">Selecione um tipo de crime</option>
+                                <option value="1">FURTO DE CELULAR</option>
+                                <option value="2">FURTO DE VEÍCULO</option>
+                                <option value="3">HOMICÍDIO DOLOSO</option>
+                                <option value="4">LATROCÍNIO</option>
+                                <option value="5">LESÃO CORPORAL DOLOSA SEGUIDA DE MORTE</option>
+                                <option value="6">ROUBO DE CELULAR</option>
+                                <option value="7">ROUBO DE VEÍCULOS</option>
+                            </select>
+                        </div>
+                        <div class="register-group">
+                            <label for="register-crime-date">Data do Crime</label>
+                            <input required id="register-crime-date" name="register-crime-date" type="date" oninvalid="this.setCustomValidity('Selecione a data do crime ocorrido')" oninput="this.setCustomValidity('')" />
+                        </div>
+                        <div class="register-group">
+                            <label for="register-description">Descrição</label>
+                            <input required id="register-description" placeholder="Digite a descrição" name="register-description" type="text" oninvalid="this.setCustomValidity('Digite a descrição')" oninput="this.setCustomValidity('')" />
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="register-group">
+                            <label for="zipcode-city">CEP</label>
+                            <input required id="register-zipcode" placeholder="Digite o cep" name="zipcode-city" type="text" oninvalid="this.setCustomValidity('Digite o CEP')" oninput="this.setCustomValidity('')" />
+                        </div>
+                        <div class="register-group">
+                            <label for="register-city">Estado</label>
+                            <input required disabled id="register-state" placeholder="Digite o estado" name="register-state" type="text" oninvalid="this.setCustomValidity('Digite o estado')" oninput="this.setCustomValidity('')" />
+                        </div>
+                        <div class="register-group">
+                            <label for="register-city">Cidade</label>
+                            <input required disabled id="register-city" placeholder="Digite a cidade" name="register-city" type="text" oninvalid="this.setCustomValidity('Digite a cidade')" oninput="this.setCustomValidity('')" />
+                        </div>
+                        <div class="register-group">
+                            <label for="register-district">Bairro</label>
+                            <input required disabled placeholder="Digite o bairro" id="register-district" name="register-district" type="text" oninvalid="this.setCustomValidity('Digite o bairro')" oninput="this.setCustomValidity('')" />
+                        </div>
+                        <div class="register-group">
+                            <label for="register-street">Rua</label>
+                            <input required disabled placeholder="Digite a rua" id="register-street" name="register-street" type="text" oninvalid="this.setCustomValidity('Digite a rua')" oninput="this.setCustomValidity('')" />
+                        </div>
+                        <div class="register-group">
+                            <label for="register-streetnumber">Número</label>
+                            <input required placeholder="Digite o número" id="register-streetnumber" name="register-streetnumber" type="text" oninvalid="this.setCustomValidity('Digite o número')" oninput="this.setCustomValidity('')" />
+                        </div>
+                    </fieldset>
+                    <button class="register-submit-button" type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="streetListModal" tabindex="-1" role="dialog" aria-labelledby="streetListModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Lista de ruas encontradas</h3>
+                <button type="button" onclick="limpaListaDeRuas()" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul id="listaRuas">
+                    <li class="header">
+                        <p>Rua</p>
+                        <p>Bairro</p>
+                        <p>Cidade</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*END REGION MODAL*@
+
