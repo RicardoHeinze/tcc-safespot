@@ -1,2 +1,2 @@
 # tcc-safespot
-Projeto de TCC para bacharelado de Sistemas de Informação na Universidade Anhembi Morumbi.
+Projeto de TCC para graduação em Sistemas de Informação na Universidade Anhembi Morumbi.
